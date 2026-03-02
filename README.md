@@ -3,19 +3,18 @@ Enterprise SOC home lab: ELK Stack 8.x SIEM, Sysmon telemetry, Atomic Red Team a
 
 # 🛡️ SOC Home Lab — Enterprise Security Operations Center Build
 
-> A fully operational SOC environment built from scratch for hands-on
-> security engineering practice.
+> An enterprise SOC environment being built from scratch for hands-on security engineering practice.
 
-![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
+![Status](https://img.shields.io/badge/Status-Phase%203%20In%20Progress-yellow)
 ![SIEM](https://img.shields.io/badge/SIEM-ELK%20Stack%208.x-blue)
-![Rules](https://img.shields.io/badge/Detection%20Rules-5%20Custom%20KQL-green)
-![ATT&CK](https://img.shields.io/badge/MITRE%20ATT%26CK-9%20Techniques-red)
+![Rules](https://img.shields.io/badge/Detection%20Rules-Planned-lightgrey)
+![ATT&CK](https://img.shields.io/badge/MITRE%20ATT%26CK-Planned-lightgrey)
 
 ---
 
 ## 🎯 What I Built
 
-A three-VM isolated lab that replicates an enterprise SOC:
+This lab consists of three virtual machines that simulate an enterprise SOC environment:
 
 | Component    | Role                  | Technology                          | IP             |
 |--------------|-----------------------|-------------------------------------|----------------|
@@ -36,7 +35,7 @@ A three-VM isolated lab that replicates an enterprise SOC:
 │  │  192.168.10.30  │◄──│  192.168.10.20   │   │  .10    │  │
 │  │  Kibana  :5601  │   │  Elastic Agent   │   │  ART    │  │
 │  │  Fleet   :8220  │   │  Sysmon          │   │         │  │
-│  │  5 KQL Rules    │   │  PS Logging      │   │         │  │
+│  │                 │   │  PS Logging      │   │         │  │
 │  └─────────────────┘   └──────────────────┘   └─────────┘  │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -45,43 +44,41 @@ A three-VM isolated lab that replicates an enterprise SOC:
 
 ## 📋 Build Phases
 
-| # | Phase              | Topic                                     | Status      |
-|---|--------------------|-------------------------------------------|-------------|
+| # | Phase              | Topic                                     | Status |
+|---|--------------------|-------------------------------------------|--------|
 | 1 | Infrastructure     | VM setup, VMnet2, static IPs              | ✅ Complete |
 | 2 | ELK Stack          | Elasticsearch 8.x + Kibana + Fleet        | ✅ Complete |
-| 3 | Endpoint Telemetry | Sysmon, Elastic Agent, PS logging         | ✅ Complete |
-| 4 | Attack Simulation  | 8 ATT&CK techniques via Atomic Red Team   | ✅ Complete |
-| 5 | Detection Eng.     | 5 custom KQL rules + SOC dashboard        | ✅ Complete |
-| 6 | Threat Hunting/IR  | 3 hunts, Incident Report IR-2024-001      | ✅ Complete |
+| 3 | Endpoint Telemetry | Sysmon, Elastic Agent, PS logging         | 🟡 In Progress |
+| 4 | Attack Simulation  | 8 ATT&CK techniques via Atomic Red Team   | ⚪ Not Started |
+| 5 | Detection Eng.     | 5 custom KQL rules + SOC dashboard        | ⚪ Not Started |
+| 6 | Threat Hunting/IR  | 3 hunts, Incident Report IR-2024-001      | ⚪ Not Started |
 
 ---
 
 ## 🔍 Detection Rules
 
-| Rule File                            | Technique  | Tactic            | Severity   | Source        |
-|--------------------------------------|------------|-------------------|------------|---------------|
-| T1003.001-lsass-memory-access.kql    | T1003.001  | Credential Access | 🔴 High    | Sysmon EID 10 |
-| T1059.001-suspicious-powershell.kql  | T1059.001  | Execution         | 🔴 High    | WinEvent 4104 |
-| T1547.001-registry-persistence.kql   | T1547.001  | Persistence       | 🟠 Medium  | Sysmon 12/13  |
-| T1105-lolbin-abuse.kql               | T1105/1218 | C&C/Defense Ev.   | 🔴 High    | Sysmon EID 1  |
-| T1566.001-office-spawning-shell.kql  | T1566.001  | Initial Access    | 🔴 Critical| Sysmon EID 1  |
+> ⚠️ Detection engineering phase not started yet.  
+> Custom KQL rules will be added in Phase 5.
+
+| Rule File | Technique | Tactic | Severity | Source |
+|-----------|-----------|--------|----------|--------|
+| *To be created in Phase 5* | - | - | - | - |
 
 ---
 
 ## 🗺️ MITRE ATT&CK Coverage
 
-![ATT&CK Coverage Heatmap](mitre-coverage/attack-coverage-heatmap.png)
+![ATT&CK Coverage Heatmap](mitre-coverage/placeholder.png)
 
 ---
 
 ## 📸 Key Screenshots
 
-### Alert Firing — LSASS Credential Dump Detected
+### Detection Alerts (To Be Implemented in Phase 5)
 ![LSASS Alert](screenshots/phase5-detections/placeholder.png)
 
-### SOC Overview Dashboard
+### SOC Dashboard (Planned)
 ![Dashboard](screenshots/phase6-hunting/placeholder.png)
-
 ---
 
 ## 📁 Repository Structure
@@ -90,20 +87,22 @@ See the full structure in [setup/README.md](setup/README.md)
 
 ---
 
-## 🛠️ Skills Demonstrated
+## 🛠️ Skills Demonstrated (In Progress)
 
-- **SIEM deployment** — ELK Stack 8.x: Elasticsearch, Kibana, Fleet, Elastic Defend
-- **Endpoint telemetry** — Sysmon enterprise config, WinEvent collection, PS logging
-- **Adversary emulation** — 8 MITRE ATT&CK techniques via Atomic Red Team
-- **Detection engineering** — Custom KQL rules with false positive tuning
-- **Threat hunting** — Beaconing, parent-child anomalies, credential access timeline
-- **Incident response** — Formal IR with IOC extraction, timeline, remediation
+- SIEM Deployment — ELK Stack 8.x installation and configuration
+- Fleet Server setup and agent policy configuration
+- Enterprise network isolation with VMware
+- Endpoint telemetry configuration (Sysmon + Elastic Agent — in progress)
+- Detection engineering (planned for Phase 5)
+- Threat hunting and incident response (planned for Phase 6)
 
 ---
 
 ## 🚀 Reproduce This Lab
 
-Requirements: 16GB RAM, VMware Workstation Pro, ~200GB disk, 3–5 days.
+> ⚠️ Current Stage: Phase 3 — Endpoint Telemetry  
+> Progress: Windows Agent Policy created in Kibana.  
+> Sysmon installation and Elastic Agent enrollment in progress.
 
 ---
 
