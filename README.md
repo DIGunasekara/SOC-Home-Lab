@@ -57,7 +57,7 @@ This lab consists of three virtual machines that simulate an enterprise SOC envi
 
 ## 🔍 Detection Rules
 
-> ⚠️ Detection engineering phase not started yet.  
+> Detection engineering phase not started yet.  
 > Custom KQL rules will be added in Phase 5.
 
 | Rule File | Technique | Tactic | Severity | Source |
@@ -100,7 +100,7 @@ See the full structure in [setup/README.md](setup/README.md)
 
 ## 🚀 Reproduce This Lab
 
-> ⚠️ Current Stage: Phase 3 — Endpoint Telemetry  
+> Current Stage: Phase 3 — Endpoint Telemetry  
 > Progress: Windows Agent Policy created in Kibana.  
 > Sysmon installation and Elastic Agent enrollment in progress.
 
