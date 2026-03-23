@@ -1,6 +1,9 @@
 # SOC-Home-Lab
 Enterprise SOC home lab: ELK Stack 8.x SIEM, Sysmon telemetry, Atomic Red Team attack simulation, custom KQL detection rules, MITRE ATT&amp;CK mapped
 
+# 🚧 Work In Progress: This project is currently under active development. Features and documentation are subject to change.
+
+
 # 🛡️ SOC Home Lab — Enterprise Security Operations Center Build
 
 > An enterprise SOC environment being built from scratch for hands-on security engineering practice.
